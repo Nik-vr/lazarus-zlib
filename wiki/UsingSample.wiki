@@ -1,0 +1,13 @@
+#labels zlib,lazarus,example
+{{{
+uses zlibfunc;
+ 
+// Сжатие одиночного файла
+CompressFile(SourceFile: string, PackedFile: string);
+ 
+// Сжатие заданного каталога
+procedure CompressDirectory(const Directory: string; Recursive: Boolean; const FileName: string);
+ 
+// Распаковка zlib-архива в заданный каталог
+DecompressFile(PackedFile: string, UnPackedFile: string);
+}}}
