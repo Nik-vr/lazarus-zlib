@@ -1,0 +1,10 @@
+{$L win32-zlib\adler32.o}
+{$L win32-zlib\crc32.o}
+{$L win32-zlib\deflate.o}
+{$L win32-zlib\infback.o}
+{$L win32-zlib\inffast.o}
+{$L win32-zlib\inflate.o}
+{$L win32-zlib\inftrees.o}
+{$L win32-zlib\match.o}
+{$L win32-zlib\trees.o}
+{$L win32-zlib\zutil.o}   
