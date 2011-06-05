@@ -1,12 +1,16 @@
 {*****************************************************************************
 *  ZLibEx.pas                                                                *
 *                                                                            *
-*  copyright (c) 2010 Nikolay Petrochenko                                    *
+*  copyright (c) 2010-2011 Nikolay Petrochenko                               *
 *  copyright (c) 2000-2010 base2 technologies                                *
 *  copyright (c) 1995-2002 Borland Software Corporation                      *
 *                                                                            *
 *  revision history                                                          *
+*    04.06.2011  code cleanup, create Project page on Google Code            *
 *    13.12.2010  first version, compiled in Lazarus                          *
+*                                                                            *
+*  License: Mozilla Public License версии 1.1                                *
+*           http://www.mozilla.org/MPL/MPL-1.1.html                          *
 *                                                                            *
 *****************************************************************************}
 
