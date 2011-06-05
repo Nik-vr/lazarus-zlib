@@ -14,16 +14,11 @@ unit ZLibEx;
 
 interface
 
-{//$I ZLibEx.inc}
-
 uses
   SysUtils, Classes, ZLibExApi;
 
 type
-
-
   RawByteString = AnsiString;
-
 
   TStreamPos = {$ifdef Version6Plus} Int64 {$else} Longint {$endif};
 
@@ -116,7 +111,6 @@ const
 
 type
   {** TZ*Function ***********************************************************}
-
   TZReadFunction = function (param: Pointer; var buffer;
     size: Integer): Integer;
 
@@ -124,7 +118,6 @@ type
     size: Integer): Integer;
 
   {** TZInformation *********************************************************}
-
   TZInformation = packed record
     CompressedFlags  : Longint;
     CompressedSize   : TStreamPos;
@@ -138,7 +131,6 @@ type
   end;
 
   {** TCustomZStream ********************************************************}
-
   TCustomZStream = class(TStream)
   private
     FStream    : TStream;
@@ -153,7 +145,6 @@ type
   public
     constructor Create(stream: TStream);
   protected
-
     function  StreamRead(var buffer; count: Longint): Longint;
     function  StreamWrite(const buffer; count: Longint): Longint;
     function  StreamSeek(offset: Longint; origin: Word): Longint;
@@ -169,7 +160,6 @@ type
   end;
 
   {** TZCompressionStream ***************************************************}
-
   TZCompressionStream = class(TCustomZStream)
   private
     function GetCompressionRate: Single;
@@ -191,7 +181,6 @@ type
   end;
 
   {** TZDecompressionStream *************************************************}
-
   TZDecompressionStream = class(TCustomZStream)
   public
     constructor Create(source: TStream); overload;
@@ -207,7 +196,6 @@ type
   end;
 
   {** TZCustomBuffer ********************************************************}
-
   TZCustomBuffer = class(TObject)
   private
     FBuffer        : Pointer;
@@ -240,7 +228,6 @@ type
   end;
 
   {** TZCompressionBuffer ***************************************************}
-
   TZCompressionBuffer = class(TZCustomBuffer)
   public
     constructor Create(level: TZCompressionLevel = zcDefault); overload;
@@ -258,7 +245,6 @@ type
   end;
 
   {** TZDecompressionBuffer *************************************************}
-
   TZDecompressionBuffer = class(TZCustomBuffer)
   public
     constructor Create; overload;
@@ -272,46 +258,27 @@ type
   end;
 
 {** zlib deflate routines ***************************************************}
-
-function  ZDeflateInit(var stream: TZStreamRec;
-  level: TZCompressionLevel): Integer;
-
-function  ZDeflateInit2(var stream: TZStreamRec;
-  level: TZCompressionLevel; windowBits, memLevel: Integer;
-  strategy: TZStrategy): Integer;
-
+function  ZDeflateInit(var stream: TZStreamRec; level: TZCompressionLevel): Integer;
+function  ZDeflateInit2(var stream: TZStreamRec; level: TZCompressionLevel; windowBits, memLevel: Integer; strategy: TZStrategy): Integer;
 function  ZDeflate(var stream: TZStreamRec; flush: TZFlush): Integer;
-
 function  ZDeflateEnd(var stream: TZStreamRec): Integer;
-
 function  ZDeflateReset(var stream: TZStreamRec): Integer;
 
 {** zlib inflate routines ***************************************************}
-
 function  ZInflateInit(var stream: TZStreamRec): Integer;
-
-function  ZInflateInit2(var stream: TZStreamRec;
-  windowBits: Integer): Integer;
-
+function  ZInflateInit2(var stream: TZStreamRec; windowBits: Integer): Integer;
 function  ZInflate(var stream: TZStreamRec; flush: TZFlush): Integer;
-
 function  ZInflateEnd(var stream: TZStreamRec): Integer;
-
 function  ZInflateReset(var stream: TZStreamRec): Integer;
 
 {** zlib checksum routines **************************************************}
-
 function  ZAdler32(adler: Longint; const buffer; size: Integer): Longint;
-
 function  ZCrc32(crc: Longint; const buffer; size: Integer): Longint;
 
 {** zlib custom routines ****************************************************}
+procedure ZDeflateEx(var stream: TZStreamRec; param: Pointer; read: TZReadFunction; write: TZWriteFunction; flush: TZFlush);
 
-procedure ZDeflateEx(var stream: TZStreamRec; param: Pointer;
-  read: TZReadFunction; write: TZWriteFunction; flush: TZFlush);
-
-procedure ZInflateEx(var stream: TZStreamRec; param: Pointer;
-  read: TZReadFunction; write: TZWriteFunction; flush: TZFlush);
+procedure ZInflateEx(var stream: TZStreamRec; param: Pointer; read: TZReadFunction; write: TZWriteFunction; flush: TZFlush);
 
 {*****************************************************************************
 *  ZCompress                                                                 *
@@ -1227,7 +1194,7 @@ end;
 procedure ZDecompressStringEx(var result: AnsiString; const s: RawByteString);
 var
   buffer  : Pointer;
-  size    : Integer;
+  size    : Integer = 0;
   data    : AnsiString;
   dataSize: Integer;
 begin
