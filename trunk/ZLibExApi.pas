@@ -175,17 +175,11 @@ implementation
 *    make LOC=-DASMV OBJA=match.o -f makefile.gcc                            *
 *****************************************************************************}
 
-{$L Zlib\adler32.o}
-{$L Zlib\crc32.o}
-{$L Zlib\deflate.o}
-{$L Zlib\infback.o}
-{$L Zlib\inffast.o}
-{$L Zlib\inflate.o}
-{$L Zlib\inftrees.o}
-{$L Zlib\match.o}
-{$L Zlib\trees.o}
-{$L Zlib\zutil.o}
-
+{$IFDEF FPC}
+ {$IFDEF WIN32}
+  {$I win32-obj.inc}
+ {$ENDIF}
+{$ENDIF}
 
 function _malloc(Size: Integer): Pointer; cdecl; [public, alias: '_malloc'];
 begin
