@@ -1,24 +1,21 @@
-// ==========================================================================
-// Данный файл содежит функции и профедуры, упрощающие работу с архивами zLib
-//
-// Содержимое этого файла подпадает под действие лицензией Mozilla Public
-// License версии 1.1 (далее - "Лицензия"); вы не может использовать данный
-// файл без ссылки на Лицензию. Вы можете получить полную копию Лицензии на
-// http://www.mozilla.org/MPL/MPL-1.1.html
-//
-// Оригинальный код: JvZlibMultiple.PAS, от 2001-02-28.
-// Первым разработчиком оригинального кода является SИbastien Buysse
-// [sbuysse@buypin.com]
-//
-// Модификация для совместимости с zLibEx.pas версии 1.2.1, а также отделение
-// от библиотеки JEDI выполнены Петроченко Н.Ю. [15.09.2004]
-//
-// Портирование под Lazarus и адаптация для zlib версии 1.2.5 выполнены
-// Петроченко Н.Ю. [10.12.2010]
-//
-// Последние изменения: 13.12.2010
-//
-// ==========================================================================
+{*****************************************************************************
+*  zlibfunc.pas                                                              *
+*                                                                            *
+*  copyright (c) 2004-2011 Nikolay Petrochenko                               *
+*  copyright (c) 2001 SИbastien Buysse [sbuysse@buypin.com]                  *
+*  based on part of JvZlibMultiple.PAS (c) JCL                               *
+*                                                                            *
+*  revision history                                                          *
+*    04.06.2011  code cleanup, create Project page on Google Code            *
+*    13.12.2010  first version, compiled in Lazarus                          *
+*                                                                            *
+*  This file contaned simple functions for work with zlib-archives           *
+*  It's used original zlib source, compiled in obj-files                     *
+*                                                                            *
+*  License: Mozilla Public License версии 1.1                                *
+*           http://www.mozilla.org/MPL/MPL-1.1.html                          *
+*                                                                            *
+*****************************************************************************}
 
 unit zlibfunc;
 
